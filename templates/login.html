@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSCB20 Login</title>
+    <link rel="stylesheet" href="static/stylesheet/signup.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    {% block customcss %}{% endblock %}
+</head>
+<body>
+    <form action="login" method="POST" id="login_form">
+        {% block error %}{% endblock %}
+        <div id="username">
+            <label>Username<div id="username_error"></div></label>
+            <input type="text" name="username" placeholder="Enter your username here">
+            </div>
+        <div id="password">
+            <label>Password<div id="password_error">{% block password_error %}{% endblock %}</div></label>
+            <input type="password" name="password" placeholder="Enter your password here">
+            </div>
+        <div id="buttons">
+            <p><input type="submit" value="Login"></p>
+            <br>
+            <label>New to CSCB20?</label>
+            <p><input type="button" id="signup" value="Sign up"></p>
+        </div>
+    </form>
+    <script src="static/scripts/login.js"></script>
+</body>
+</html>

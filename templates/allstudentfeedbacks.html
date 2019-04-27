@@ -1,0 +1,41 @@
+<!-- only instructor can view this page -->
+{% if session['user_type'] == "instructor" %}
+{% extends 'base.html' %}
+<!-- title append to CSCB20 -->
+{% block title %}All Students Feedbacks{% endblock %}
+
+<!-- customcss unique to this page -->
+{% block customcss %}
+<link rel="stylesheet" href="static/stylesheet/feedback.css">
+{% endblock %}
+
+<!-- content -->
+{% block content%}
+<div class="content">
+    <div class="subheadings" id="all_student_feedbacks">
+        <h2>Student Feedbacks for {{instructor_name}}</h2>
+        </div>
+
+    {% for key in questions.keys() %}
+    <div class="subheadings" id="feedback_questions">
+        <h2>{{questions[key][0]}}</h2>
+    </div>
+        {% for response in responses[key] %}
+        <!--Only display the responses that students have actually filled in-->
+        {% if (not ((response == None) or (response == ""))): %}
+        <div class="block-content">
+            <p>{{response}}</p>
+        </div>
+        {% endif %}
+        {% endfor %}
+    {% endfor %}
+</div>
+{% endblock %}
+
+<!-- if a student tries to access this page, redirect to /feedback -->
+{% elif session['user_type'] == "student" %}
+{% extends 'redirect.feedback.html' %}
+{% else %}
+<!-- use js to redirect guest to log in page -->
+{% extends 'redirect.home.html' %}
+{% endif %}

@@ -1,0 +1,68 @@
+{% if session['uid'] %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSCB20 {% block title %}{% endblock %}</title>
+    <!-- common stylesheet -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Noto+Serif" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/stylesheet/header+footer.css">
+    <link rel="stylesheet" href="static/stylesheet/subheading+blocks.css">
+    <link rel="stylesheet" href="static/stylesheet/mobile.header.css">
+    <link rel="stylesheet" href="static/stylesheet/select_dropdowns.css">
+    <!-- per page css -->
+    {% block customcss %}{% endblock %}
+</head>
+<body>
+    <header>
+            <div class="heading">
+                <div class="heading-img">
+                    <img src="static/images/Utoronto.png" alt="U of T logo">
+                </div>
+                <div class="heading-text">
+                        <h1>CSCB20</h1>
+                        <h1>Introduction to Databases and Web Applications</h1>
+                </div>
+            </div>
+            <div class="nav-bar">
+                <!-- <nav> -->
+                    <input type="checkbox" id="menu-toggle">
+                    <label for="menu-toggle"> Menu <i class="fas fa-bars"></i></label>
+                    <ul id="menu">
+                        <li><a href="home"><i class="fas fa-home"></i>Home</a></li>
+                        <li><a href="calendar"><i class="fas fa-calendar"></i>Calendar</a></li>
+                        <li><a href="lectures"><i class="fas fa-copy"></i>Lecture</a></li>
+                        <li><a href="assignments"><i class="fas fa-pen"></i>Assignments & Test</a></li>
+                        <li><a href="labs"><i class="fas fa-flask"></i></i>Labs </a></li>
+                        <li><a href="courseteam"><i class="fas fa-users"></i></i>Course Team</a></li>
+                        <li><a href="feedback"><i class="fas fa-comment-dots"></i></i>Feedback</a></li>
+                        <li><a href="grade"><i class="fab fa-wpforms"></i>Grades</a></li>
+                        {% if session['user_type'] == "instructor" %}
+                        <li><a href="allremarkrequests"><i class="fas fa-question-circle"></i>Remark Requests</a></li>
+                        {% endif %}
+                        <!-- open new tab for external site for better UX -->
+                        <li><a href="https://piazza.com/class/jr7mjhytaij3jc"  target=_blank><i class="fas fa-comments"></i></i>Piazza</a></li>
+                        <li><a href="https://markus.utsc.utoronto.ca/cscb20w19/?locale=en" target=_blank><i class="fas fa-link"></i>MarkUs</a></li>
+                        <li><a href="logout"><i class="fas fa-sign-out-alt"></i>Log out</a></li>
+                    </ul>
+                <!-- </nav> -->
+            </div>
+        </header>
+        {% block content%}{% endblock %}
+    <footer>
+            <div class="CMS-link">
+                <h3><a href="https://www.utsc.utoronto.ca/cms/faculty-of-computer-science"> Faculty of Computer Science </a></h3>
+            </div>
+            <div class="site-design">
+                <h3> Site designed by: Elton Kok and Honpan Lung </h3>
+            </div>
+        </footer>
+</body>
+{% block script %}{% endblock %}
+</html>
+{% else %}
+{% extends 'redirect.home.html' %}
+{% endif %}

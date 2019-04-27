@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Calendar{% endblock %}
+
+{% block customcss %}
+<link rel="stylesheet" href="static/stylesheet/calendar.css">
+<link rel="stylesheet" href="static/stylesheet/font-firacode.css">
+{% endblock %}
+
+{% block content%}
+<div class="content">
+        <div class="subheadings" id="calendar-info">
+            <h2>Calendar</h2>
+            <h4>Please <a href="https://accounts.google.com" target="_blank">log in to your Google account</a> if you get an error or a black frame.<br>
+                This is likely a limitation of Google Calendar</h4>
+        </div>
+        <div id="calendar-box">
+            <iframe src="https://calendar.google.com/calendar/embed?src=062btcpe6ukskfptv62jsc7sug%40group.calendar.google.com&amp;ctz=America/Toronto"></iframe>
+    </div>
+{% endblock %}

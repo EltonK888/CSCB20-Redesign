@@ -1,0 +1,85 @@
+<!-- only instructor can view this page -->
+{% if session['user_type'] == "instructor" %}
+{% extends 'base.html' %}
+<!-- title append to CSCB20 -->
+{% block title %}All Students Grades{% endblock %}
+
+<!-- customcss unique to this page -->
+{% block customcss %}
+<link rel="stylesheet" href="static/stylesheet/divTable.css">
+<link rel="stylesheet" href="static/stylesheet/basicchangegrade.css">
+<link rel="stylesheet" href="static/stylesheet/feedback.css">
+{% endblock %}
+
+<!-- content -->
+{% block content%}
+<div class="content">
+    <div class="subheadings" id="all_student_grades">
+        <h2>All Students' Grades</h2>
+    </div>
+    <div class="block-content">
+        <div class="divTable studentgrades">
+            <div class="divTableHeading">
+                <div class="divTableRow">
+                    {% for item in table_header %}
+                    <div class="divTableHead">{{item}}</div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="divTableBody">
+                {% for student_uid in grade_dict %}
+                <div class="divTableRow" id="{{student_uid}}">
+                    {% for key in grade_dict[student_uid] %}
+                    <div class="divTableCell" id="{{key}} {{student_uid}}">{{grade_dict[student_uid][key]}}</div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="subheadings">
+            <h2>Change a Student Grade</h2>
+        </div>
+    <div class="block-content">
+                <form action="change_student_grade" name="grade-change" method="POST">
+                    <p><label><b>Student Name </b></label></p>
+                        <select name="student_uid" id="uid_names">
+                            {% for key in uids.keys() %}
+                            <option value="{{key}}">{{uids[key]}}</option>
+                            {% endfor %}
+                        </select>
+                    <div id="grade_name">
+                    <p><label><b>Grade to change </b></label></p>
+                        <select name="grade_db_name" id="grade_db_name_selector">
+                            {% for key in grades.keys() %}
+                            <option value="{{key}}">{{grades[key]}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div id="mark">
+                        <p><label><b>Change mark to </b><div id="mark_msg"></div></label></p>
+                        <input type="number" name="changed_mark" placeholder="Enter new mark">
+                    </div>
+                    <br>
+                    <div class="submit-btn">
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+                <div id="hidden">
+                    {{message}}
+                </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %} 
+<script src="static/scripts/changegrade.js"></script>
+{% endblock %}
+
+<!-- if a student tries to access this page, redirect to /grade -->
+{% elif session['user_type'] == "student" %}
+{% extends 'redirect.grade.html' %}
+{% else %}
+<!-- use js to redirect guest to log in page -->
+{% extends 'redirect.home.html' %}
+{% endif %}

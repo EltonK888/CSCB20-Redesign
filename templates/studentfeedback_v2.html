@@ -1,0 +1,54 @@
+<!-- only student can view this page -->
+{% if session['user_type'] == "student" %}
+{% extends 'base.html' %}
+
+<!-- title append to CSCB20 -->
+{% block title %}Student Feedback{% endblock %}
+
+<!-- customcss unique to this page -->
+{% block customcss %}
+<link rel="stylesheet" href="static/stylesheet/feedback.css">
+{% endblock %}
+
+<!-- content -->
+{% block content %}
+<div class="content">
+    {% block msg %}{% endblock %}
+    <div class="subheadings" id="feedback-info">
+        <h2> Submit Your Feedback! </h2>
+    </div>
+        
+    <div class="form" id="feedback-form">
+        <body>
+            <form method="POST" id="feedback-form">
+                <label><b>Select an instructor</b> (required): <div id="instructor_message"></div></label>
+                {% for key in instructors.keys() %}
+                <label><p><input type="radio" name="instructor_uid" value="{{key}}">{{instructors[key]}}</p></label>
+                {% endfor %}
+                {% for key in questions.keys() %}
+                <div class="std-txtarea">
+                    <label><b>{{questions[key][0]}}</b><div id="feedback_message"></div></label>
+                    <textarea name="{{key}}" placeholder="Type your feedback here" class="questions"></textarea>
+                </div>
+                {% endfor %}
+                <div class="submit-btn">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </body>
+    </div>
+    <div id="hidden">
+        {{instname}}
+    </div>
+</div>
+{% endblock %}
+
+{% block script %} <script src="static/scripts/studentfeedback.js"></script> {% endblock %}
+
+<!-- if an instructor tries to access this page, redirect to /feedback -->
+{% elif session['user_type'] == "instructor" %}
+{% extends 'redirect.feedback.html' %}
+{% else %}
+<!-- use js to redirect guest to log in page -->
+{% extends 'redirect.home.html' %}
+{% endif %}

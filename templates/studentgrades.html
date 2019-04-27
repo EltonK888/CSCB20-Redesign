@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Student Grades{% endblock %}
+
+{% block customcss %}
+<link rel="stylesheet" href="static/stylesheet/feedback.css">
+{% endblock %}
+
+{% block content %}
+<div class="content">
+    <div class="subheadings" id="student-grade">
+        <h2>Your Grades</h2>
+    </div>
+    {% for key in pretty_names.keys() %}
+    <div class="block-content">
+        <h2>
+            {{pretty_names[key]}}
+        </h2>
+        <p>
+            {{student_grades[key]}}
+        </p>
+    </div>
+    {% endfor %}
+    <div class="subheadings" id="remark-request">
+        <h2>Remark Request</h2>
+        <h4>Note: You can only submit one remark request for each grade!</h4>
+    </div>
+    <div class="form" id="remark-request-form">
+        <div class="std-name">
+            <form action="/submit_remark_request" method="POST">
+                <div class="std-name">
+                    <label><b>Grade to remark</b></label><br>
+                    <select name="grade_db_name" id="grade_db_name_selector">
+                        {% for key in pretty_names.keys() %}
+                        <option value="{{key}}">{{pretty_names[key]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <br>
+                <div class="std-txtarea">
+                    <label><b>Reason</b> (required)<div id="remark_message">{{remark_message}}</div></label>
+                    <textarea name="remark_reason" placeholder="Type your reason to remark here"></textarea>
+                </div>
+                <div class="submit-btn">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+<script src="static/scripts/studentgrades.js"></script>
+{% endblock %}

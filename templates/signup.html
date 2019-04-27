@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="static/stylesheet/signup.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    {% block customcss %}{% endblock %}
+    <title>CSCB20 Sign up</title>
+</head>
+<body>
+    <form method="POST" id="sign_up_form" name="sign_up">
+        {% block error %}{% endblock %}
+        <div id="firstname">
+            <label>First name<div id="first_name_error"></div></label>
+            <input type="text" placeholder="Enter your first name here" name="first_name">
+        </div>
+        <div id="lastname">
+            <label>Last name<div id="last_name_error"></div></label>
+            <input type="text" placeholder="Enter your last name here" name="last_name">
+        </div>
+        <div id="username">
+            <label>Username<div id="username_error"></div></label>
+            <input type="text" placeholder="Enter your username here" name="username">
+        </div>
+        <div id="password">
+            <label>Password<div id="password_error"></div></label>
+            <input type="password" placeholder="Enter your password here" name="password">
+        </div>
+        <div id="confpassword">
+            <label>Confirm password<div id="conf_password_error"></div></label>
+            <input type="password" placeholder="Re-Enter your password here" name="confirm_password">
+        </div>
+        <div id="role">
+            <label>Role<div id="role_error"></div></label>
+            <label class="font_weight_regular">Student<input type="radio" name="role" id="student" value="student"></label>
+            <label class="font_weight_regular">Instructor<input type="radio" name="role" id="instructor" value="instructor"></label>
+        </div>
+        <br>
+        <div id="buttons">
+            <p><input type="submit" value="Sign up"></p>
+            <br>
+            <label>Already have an account?</label>
+            <p><input type="button" id="login" value="Log in"></p>
+        </div>
+    </form>
+    <script src="static/scripts/signup.js"></script>
+</body>
+</html>

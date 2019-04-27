@@ -1,0 +1,23 @@
+#calendar-box {
+    /* center the iframe */
+    /* resize iframe based on viewpoint */
+    width: 80vw;
+    height: 35vw;
+    margin-left:  auto;
+    margin-right: auto;
+    /* padding-top: 10px; */
+}
+
+/* remove left and right margins for phones */
+@media (max-aspect-ratio: 99/100) {
+    #calendar-box {
+        width: 100%;
+        height: 100vw;
+    }
+}
+
+/* maximizes iframe */
+#calendar-box iframe {
+    height: 100%;
+    width:100%;
+}

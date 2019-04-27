@@ -1,0 +1,65 @@
+.form {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+/* todo: center input boxes */
+
+input[type=text], textarea {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-family: sans-serif;
+    padding-left: 10px;
+    /* padding-right: 10px; */
+    border-radius: 5px;
+    font-size: 14pt;
+    border: 1px solid #00204E;
+}
+
+input[type=text]:hover, textarea:hover {
+    border: 1px solid #008BB0;
+    transition: 0.3s ease-out;
+}
+input[type=text] {
+    height: 30px;
+}
+
+textarea {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 200px;
+}
+
+.submit-btn {
+    display: flex;
+    justify-content: center;
+}
+
+input[type=submit] {
+    height: 50px;
+    width: 15%;
+    background-color: #00204E;
+    border: 1px solid #00204E;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+input[type=submit]:hover {
+    background-color: rgb(1, 55, 131);
+    border: 1px solid rgb(1, 55, 131);
+    transition: 0.2s ease-in;
+}
+
+@media (max-aspect-ratio: 99/100) {
+    input[type=submit] {
+        width: 100%;
+    }
+}
+
+#hidden {
+    display: none;
+}

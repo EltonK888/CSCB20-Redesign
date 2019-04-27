@@ -1,0 +1,47 @@
+<!-- only instructor can view this page -->
+{% if session['user_type'] == "instructor" %}
+{% extends 'base.html' %}
+<!-- title append to CSCB20 -->
+{% block title %}All Students Feedbacks{% endblock %}
+
+<!-- customcss unique to this page -->
+{% block customcss %}
+<link rel="stylesheet" href="static/stylesheet/feedback.css">
+<link rel="stylesheet" href="static/stylesheet/remarkrequest.css">
+{% endblock %}
+
+<!-- content -->
+{% block content%}
+<div class="content">
+    <div class="subheadings" id="all_student_remark_requests">
+        <h2>Remark Requests</h2>
+        <h4>All student remark requests are listed here, group by grade name.</h4>
+        </div>
+    {% for grade_name in remark_requests %}
+    <div class="subheadings">
+            <h2>{{pretty_names[grade_name]}}</h2>
+            </div>
+    
+        {% for key in remark_requests[grade_name] %}
+        <div class="block-content status-{{remark_requests[grade_name][key][2]}}">
+            <p><b>Status:</b> {{remark_requests[grade_name][key][2]}}</p>
+            <p class="fullname"><b>Student Name:</b> {{remark_requests[grade_name][key][0]}}</p>
+            <p class="{{grade_name}}" id="{{key}}"><b>Reason:</b> <br> {{remark_requests[grade_name][key][1]}}</p>
+            {% if remark_requests[grade_name][key][2] == 'Open' %}
+                <input type="submit" value="Mark as Closed" class="mark_as_closed_btn" id="{{key}},{{grade_name}}"></input>
+                <div hidden class="hidden_key">{{key}}</div>
+                <div hidden class="hidden_grade_name">{{grade_name}}</div>
+            {% endif %}
+            </div>
+        {% endfor %}
+    
+    {% endfor %}
+</div>
+<script src="static/scripts/submitFORM.js"></script>
+{% endblock %}
+<!-- if a student tries to access this page, redirect to /grade -->
+{% elif session['user_type'] == "student" %}
+{% extends 'redirect.grade.html' %}
+{% else %}
+{% extends 'redirect.home.html' %}
+{% endif %}

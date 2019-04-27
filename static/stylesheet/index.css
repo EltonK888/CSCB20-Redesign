@@ -1,0 +1,166 @@
+.CSCB20 {
+    background-image: url("../images/home_background2.png");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+.CSCB20 h1 {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 10%;
+    font-family: "Noto Serif", serif;
+    color:#00204E;
+    height: 100%;
+    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
+    /* font-size: 60pt; */
+    font-size: 7vw;
+    font-weight: 900;
+    margin: 0px;
+}
+
+/* decrease title font size on phone */
+/* @media (max-width: 500px) {
+    .CSCB20 h1 {   
+        font-size: 2em;
+    }
+} */
+
+#course-description h2 {
+    margin-top: 1em;
+}
+
+/* Instructor Information */
+.info-card-area {
+    display: flex;
+    /* does not do anything as default direction is row */
+    /* flex-direction: row; */
+    justify-content: space-between;
+    align-items: center;
+    /* does not seem to do anything */
+    /* margin-bottom: 50px; */
+}
+
+/* small space between boxes for 1366x768 screen */
+.info-card {
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    width: 16.5%;
+    height: 160px;
+}
+
+/* add more spacing between boxes for higher res screens */
+@media (min-width: 1600px) {
+    .info-card {
+        width: 15%;
+    }
+}
+
+.info-card h3 {
+    font-family: "Noto Serif", serif;
+    font-weight: bold;
+    font-size: 20pt;
+    font-style: italic;
+}
+
+.info-card h4 {
+    font-style: italic;
+    font-size: 14pt;
+    /* force break word because email is too long */
+    overflow-wrap: break-word;
+
+}
+
+/* switch to vertical layout for phones */
+@media (max-width: 1000px) {
+    .info-card-area {
+        flex-direction: column;
+    }
+    /* fully utilize available space */
+    .info-card {
+        width: 90%;
+        margin: 5px 0px;
+        height: 180px;
+    }
+}
+
+/* remove ugly underline from email */
+.info-card a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.info-card a:hover {
+    text-shadow: 0px 0px 3px #000000;
+    /* color: #ffffff; */
+    transition: 0.2s
+}
+
+/* change the background of each card */
+#ins-name {
+    background-color: #E31837;
+}
+
+#ins-email {
+    background-color: #008BB0;
+}
+
+#ins-office {
+    background-color: #271100;
+}
+
+#ins-phone {
+    background-color: #7BA4D9;
+}
+
+#ins-lectures {
+    background-color: #008BB0;
+}
+
+#ins-office-hours {
+    background-color: #E31837;
+}
+/* Instructor Information ends*/
+
+/* news */
+.news-post {
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    margin-bottom: 40px;
+    font-size: 14pt;
+}
+
+.news-post h3 {
+    font-size: 16pt;
+    padding-bottom: 5px;
+    border-bottom: #00204E 1px dotted;
+}
+/* news ends*/
+
+/* resources */
+
+/* #resources a {
+    font-weight: bold;
+    color: #00204E;
+} */
+
+#resources h3 {
+    padding-bottom: 5px;
+    border-bottom: #00204E 1px dotted;
+}
+
+/* #resources a:hover {
+    color: #008BB0;
+    transition: 0.3s ease-out;
+} */
+
+#online-resources{
+    padding-left: 2.5%;
+    font-size: 18px;
+}
+
+#software-doc {
+    padding-left: 2.5%;
+    font-size: 18px;
+}
+/* resources ends*/

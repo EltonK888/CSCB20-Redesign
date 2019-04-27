@@ -1,0 +1,9 @@
+.auth_error_msg {
+    background-color: #ef9a9a;
+    padding: 0.5em;
+}
+
+.auth_welcome_msg {
+    background-color: #a5d6a7;
+    padding: 0.5em;
+}

@@ -1,0 +1,12 @@
+#hidden {
+    display: none;
+}
+
+input[type=number] {
+    border-radius: 5px;
+    border: 1px solid #00204E;
+    height: 30px;
+    padding-left: 5px;
+    padding-right:  5px;
+    font-size: 12pt;
+}

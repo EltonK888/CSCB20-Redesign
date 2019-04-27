@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Fira Code';
+    src:  url('../fonts/FiraCode-Regular.woff2') format('woff2'),
+          url('../fonts/FiraCode-Regular.woff') format('woff');
+}
+
+code {
+    display: block;
+    font-family: 'Fira Code', monospace;
+    background-color: #dddddd;
+    overflow: auto;
+    white-space: nowrap;
+    max-width: 85%
+}

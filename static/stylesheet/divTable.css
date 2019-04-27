@@ -1,0 +1,56 @@
+/* source: https://divtable.com/table-styler/ */
+div.studentgrades {
+    background-color: #EEEEEE;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+  }
+  .divTable.studentgrades .divTableCell, .divTable.studentgrades .divTableHead {
+    border: 2px solid #AAAAAA;
+    padding: 6px 2px;
+  }
+  .divTable.studentgrades .divTableRow:nth-child(even) {
+    background: #FFFFFF;
+  }
+  .divTable.studentgrades .divTableHeading {
+    background: #00204E;
+    border-bottom: 2px solid #444444;
+  }
+  .divTable.studentgrades .divTableHeading .divTableHead {
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+  }
+  .studentgrades .tableFootStyle {
+    font-size: 14px;
+  }
+  .studentgrades .tableFootStyle .links {
+       text-align: right;
+  }
+  .studentgrades .tableFootStyle .links a{
+    display: inline-block;
+    background: #1C6EA4;
+    color: #FFFFFF;
+    padding: 2px 8px;
+    border-radius: 5px;
+  }
+  .studentgrades.outerTableFooter {
+    border-top: none;
+  }
+  .studentgrades.outerTableFooter .tableFootStyle {
+    padding: 3px 5px; 
+  }
+  
+  .divTableRow:hover, .divTable.studentgrades .divTableRow:nth-child(even):hover {
+    background-color: #00204E;
+    color: #FFFFFF;
+    transition: 0.2s ease-out;
+  }
+
+  .divTable{ display: table; }
+  .divTableRow { display: table-row; }
+  .divTableHeading { display: table-header-group;}
+  .divTableCell, .divTableHead { display: table-cell;}
+  .divTableHeading { display: table-header-group;}
+  .divTableFoot { display: table-footer-group;}
+  .divTableBody { display: table-row-group;}

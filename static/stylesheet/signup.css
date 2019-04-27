@@ -1,0 +1,80 @@
+html {
+    /* Source: https://css-tricks.com/perfect-full-page-background-image/ */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),url("../images/home_background.png") no-repeat center center fixed;
+    background-size: cover;
+}
+
+body {
+    font-family: "Noto Sans", sans-serif;
+    color: #00204E;
+}
+
+form {
+    z-index: 1;
+    width: 50%;
+    margin: 0 auto;
+    background-color: white;
+    text-align: center;
+    border: solid #00204E 3px;
+    border-radius: 5px;
+    padding: 50px;
+    font-family: inherit;
+}
+
+input[type=text], input[type=password] {
+    width: 60%;
+    margin-top: 0.5em;
+    margin-bottom: 1.5em;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 12pt;
+    border: 1px solid #00204E;
+    font-family: inherit;
+}
+
+input[type=text]:hover, input[type=password]:hover {
+    border: 1px solid #008BB0;
+    transition: 0.3s ease-out;
+}
+
+input[type=submit], input[type=button] {
+    height: 40px;
+    width: 30%;
+    background-color: #00204E;
+    border: 1px solid #00204E;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 12pt;
+    font-family: inherit;
+}
+
+input[type=submit]:hover, input[type=button]:hover {
+    background-color: rgb(1, 55, 131);
+    border: 1px solid rgb(1, 55, 131);
+    transition: 0.2s ease-in;
+}
+
+label {
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+.font_weight_regular{
+    font-weight: normal;
+}
+
+p {
+    margin: 5px;
+}
+
+#buttons {
+    margin: 0 auto;
+    width: 80%;
+}
+
+@media (max-width: 600px) {
+    input[type=submit], input[type=button] {
+        width: 100%;
+    }
+}
